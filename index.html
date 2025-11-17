@@ -255,6 +255,10 @@
             font-size: 1.5rem;
             line-height: 1;
         }
+
+        .slider-controls button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
         
         /* --- 5. Section Backgrounds --- */
         .section--light {
@@ -520,17 +524,24 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header class="site-header">
-    <div class="wrap header-inner">
-        <a class="logo" href="#">
-            <img src="assets/avn-logo.png" alt="AVN Shipping Logo" />
-        </a>
+        <div class="wrap header-inner">
+            <a class="logo" href="#">
+                <img src="https://via.placeholder.com/140x44.png?text=AVN" alt="AVN Shipping Logo" />
+            </a>
 
-        <nav class="main-nav" id="mainNav">
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-    </div>
-</header>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        </div>
+    </header>
 
     <section id="home" class="hero">
         <div class="hero-slider" data-autoplay="true">
@@ -680,10 +691,10 @@
     </footer>
 
     <script>
-        // Set current year in the footer (simplified since script.js is missing)
+        // Set current year in the footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Basic toggle functionality for the mobile menu (simplified)
+        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const mainNav = document.getElementById('mainNav');
         if (menuToggle) {
@@ -692,8 +703,47 @@
                 this.setAttribute('aria-expanded', mainNav.classList.contains('is-open'));
             });
         }
-        
-        // Note: The Hero/Slider functionality still requires the full 'script.js' to be functional.
+
+        // Hero slider functionality
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.slider-controls .prev');
+        const nextBtn = document.querySelector('.slider-controls .next');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+                slide.style.opacity = '0';
+            });
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].style.display = 'block';
+            setTimeout(() => {
+                slides[currentSlide].style.opacity = '1';
+            }, 10);
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+        }
+
+        // Auto-play slider every 5 seconds
+        const autoplay = document.querySelector('.hero-slider').dataset.autoplay === 'true';
+        if (autoplay) {
+            setInterval(nextSlide, 5000);
+        }
+
+        // Initialize first slide
+        showSlide(0);
     </script>
 </body>
 </html>
