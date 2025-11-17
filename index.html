@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-    
+    <meta name="theme-color" content="#004d99" />
+
     <title>AVN Shipping — Reliable Global Logistics</title>
     <meta name="description" content="AVN Shipping — logistics, freight forwarding, warehousing. Static GitHub Pages version." />
     <link rel="icon" href="https://via.placeholder.com/32x32.png?text=AVN" />
 
+    <!-- Google Tag Manager -->
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -15,6 +17,7 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-MB7FJJND');
     </script>
+
     <style>
         /* --- 1. Variables and Base Reset --- */
         :root {
@@ -37,7 +40,7 @@
             margin: 0;
             line-height: 1.6;
             color: var(--color-text);
-            background-color: #ffffff; /* Clean white background for overall body */
+            background-color: #ffffff;
         }
 
         *, *::before, *::after {
@@ -132,10 +135,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
         }
 
         .logo img {
-            height: 40px; /* Adjusted size for better header fit */
+            height: 40px;
             width: auto;
             min-width: 120px;
         }
@@ -163,20 +167,25 @@
 
         .menu-toggle {
             display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            color: var(--color-text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
         
         /* --- 4. Hero Section (Slider) --- */
         .hero {
             position: relative;
             overflow: hidden;
-            height: 80vh; /* Viewport height for a prominent hero */
+            height: 80vh;
             min-height: 400px;
         }
 
         .hero-slider {
             width: 100%;
             height: 100%;
-            position: relative; /* Base for slides */
+            position: relative;
         }
 
         .slide {
@@ -187,16 +196,15 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            display: none; /* Default state, JS would handle display */
-            opacity: 0; /* Default state */
+            display: none;
+            opacity: 0;
             transition: opacity 1s ease-in-out;
         }
 
-        /* To simulate an active slide for pure CSS view */
-        .slide:first-child { 
-            display: block; 
+        .slide.is-active {
+            display: block;
             opacity: 1;
-        } 
+        }
 
         .overlay {
             position: absolute;
@@ -204,7 +212,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
         .hero-content {
@@ -216,6 +224,8 @@
             justify-content: center;
             align-items: flex-start;
             text-align: left;
+            padding: 0 var(--spacing-md);
+            max-width: 720px;
         }
 
         .hero-content h1 {
@@ -233,6 +243,7 @@
         .hero-ctas {
             display: flex;
             gap: var(--spacing-md);
+            flex-wrap: wrap;
         }
 
         .slider-controls {
@@ -262,11 +273,11 @@
         
         /* --- 5. Section Backgrounds --- */
         .section--light {
-            background-color: var(--color-light); /* Light Grey background */
+            background-color: var(--color-light);
         }
 
         .section--dark {
-            background-color: var(--color-primary); /* Deep Blue background */
+            background-color: var(--color-primary);
             color: var(--color-text-light);
         }
 
@@ -275,7 +286,7 @@
         }
 
         .section--contact {
-            background-color: var(--color-text-light); /* White background for contact form */
+            background-color: var(--color-text-light);
         }
 
         .lede {
@@ -479,13 +490,16 @@
         @media (max-width: 768px) {
             .main-nav {
                 display: none;
-                position: absolute;
+                position: fixed;
                 top: 60px; /* Adjust based on header height */
                 right: 0;
+                left: 0;
                 background-color: var(--color-dark);
                 width: 100%;
                 text-align: center;
                 box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+                padding: var(--spacing-sm) 0;
             }
             .main-nav.is-open {
                 display: block;
@@ -493,17 +507,13 @@
             .main-nav ul {
                 flex-direction: column;
                 padding: var(--spacing-sm) 0;
+                gap: 0;
             }
             .main-nav a {
                 padding: 10px 0;
             }
             .menu-toggle {
                 display: block;
-                background: none;
-                border: none;
-                color: var(--color-text-light);
-                font-size: 1.5rem;
-                cursor: pointer;
             }
             .footer-inner {
                 flex-direction: column;
@@ -515,21 +525,28 @@
             .foot-nav a {
                 margin: 0 10px;
             }
+            .hero-content {
+                align-items: center;
+                text-align: center;
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB7FJJND"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB7FJJND"
+        height="0" width="0" style="display:none;visibility:hidden" title="GTM noscript"></iframe>
+    </noscript>
 
-    <header class="site-header">
-        <div class="wrap header-inner">
-            <a class="logo" href="#">
-                <img src="https://via.placeholder.com/140x44.png?text=AVN" alt="AVN Shipping Logo" />
+    <header class="site-header" role="banner">
+        <div class="wrap header-inner" role="navigation" aria-label="Main navigation">
+            <a class="logo" href="#" aria-label="AVN Shipping homepage">
+                <img src="https://via.placeholder.com/140x44.png?text=AVN" alt="AVN Shipping logo" />
             </a>
 
-            <nav class="main-nav" id="mainNav">
+            <nav class="main-nav" id="mainNav" aria-label="Primary">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -539,148 +556,154 @@
                 </ul>
             </nav>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
         </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-slider" data-autoplay="true">
-            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=60')">
-                <div class="overlay"></div>
-                <div class="hero-content wrap">
-                    <h1>AVN Shipping — Reliable global logistics</h1>
-                    <p>Ocean freight, air freight, customs & warehousing — integrated logistics you can trust.</p>
-                    <div class="hero-ctas">
-                        <a class="btn primary" href="#services">Our Services</a>
-                        <a class="btn ghost" href="#contact">Get a Quote</a>
+    <main>
+        <section id="home" class="hero" aria-label="Hero">
+            <div class="hero-slider" data-autoplay="true" aria-hidden="false">
+                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=60');" role="img" aria-label="Container ship at sea">
+                    <div class="overlay"></div>
+                    <div class="hero-content wrap">
+                        <h1>AVN Shipping — Reliable global logistics</h1>
+                        <p>Ocean freight, air freight, customs & warehousing — integrated logistics you can trust.</p>
+                        <div class="hero-ctas">
+                            <a class="btn primary" href="#services">Our Services</a>
+                            <a class="btn ghost" href="#contact">Get a Quote</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1518459031867-a89b944bffe5?auto=format&fit=crop&w=1600&q=60');" role="img" aria-label="Global logistics network">
+                    <div class="overlay"></div>
+                    <div class="hero-content wrap">
+                        <h1>Global network. Local expertise.</h1>
+                        <p>End-to-end supply chain solutions with proven local presence and global reach.</p>
+                        <div class="hero-ctas">
+                            <a class="btn primary" href="#about">Learn More</a>
+                            <a class="btn ghost" href="#certifications">Certifications</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1518459031867-a89b944bffe5?auto=format&fit=crop&w=1600&q=60')">
-                <div class="overlay"></div>
-                <div class="hero-content wrap">
-                    <h1>Global network. Local expertise.</h1>
-                    <p>End-to-end supply chain solutions with proven local presence and global reach.</p>
-                    <div class="hero-ctas">
-                        <a class="btn primary" href="#about">Learn More</a>
-                        <a class="btn ghost" href="#certifications">Certifications</a>
+            <div class="wrap">
+                <div class="slider-controls" role="group" aria-label="Slider controls">
+                    <button class="prev" aria-label="Previous slide">‹</button>
+                    <button class="next" aria-label="Next slide">›</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section section--light">
+            <div class="wrap">
+                <h2 class="section-title">Our Services</h2>
+                <p class="lede">Comprehensive logistics services tailored to your business.</p>
+
+                <div class="services-grid" role="list">
+                    <article class="service-card" role="listitem">
+                        <img src="https://via.placeholder.com/600x360.png?text=Ocean+Freight" alt="Ocean freight" />
+                        <h3>Ocean Freight</h3>
+                        <p>Full-container and less-than-container shipments with global carrier partnerships.</p>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <img src="https://via.placeholder.com/600x360.png?text=Air+Freight" alt="Air freight" />
+                        <h3>Air Freight</h3>
+                        <p>Time-critical shipments with flexible routing and customs support.</p>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <img src="https://via.placeholder.com/600x360.png?text=Warehousing" alt="Warehousing and distribution" />
+                        <h3>Warehousing & Distribution</h3>
+                        <p>Secure storage, inventory management and last-mile distribution capabilities.</p>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <img src="https://via.placeholder.com/600x360.png?text=Customs+Brokerage" alt="Customs brokerage" />
+                        <h3>Customs Brokerage</h3>
+                        <p>Regulatory clearance and compliance to keep cargo moving smoothly.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section section--dark">
+            <div class="wrap about-grid">
+                <div class="about-media">
+                    <img src="https://via.placeholder.com/1000x600.png?text=About+AVN" alt="About AVN" />
+                </div>
+                <div class="about-content">
+                    <h2>About AVN Shipping</h2>
+                    <p>AVN Shipping provides tailored logistics solutions built on industry experience, technology and a customer-first approach. We combine global partner networks with local expertise to deliver value for our clients.</p>
+                    <ul class="about-list">
+                        <li><strong>Experience:</strong> 20+ years in freight & logistics</li>
+                        <li><strong>Network:</strong> International coverage with local offices</li>
+                        <li><strong>Quality:</strong> Committed to compliance and continuous improvement</li>
+                    </ul>
+                    <a class="btn primary" href="#contact">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section section--light">
+            <div class="wrap">
+                <h2 class="section-title">Certifications & Awards</h2>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <img src="https://via.placeholder.com/240x160.png?text=ISO+9001" alt="ISO 9001 certificate" />
+                        <div>ISO 9001</div>
+                    </div>
+                    <div class="cert-card">
+                        <img src="https://via.placeholder.com/240x160.png?text=Great+Place+To+Work" alt="Great Place to Work award" />
+                        <div>Great Place to Work</div>
+                    </div>
+                    <div class="cert-card">
+                        <img src="https://via.placeholder.com/240x160.png?text=Safety+Cert" alt="Safety certificate" />
+                        <div>Safety & Compliance</div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="slider-controls wrap">
-            <button class="prev" aria-label="Previous slide">‹</button>
-            <button class="next" aria-label="Next slide">›</button>
-        </div>
-    </section>
+        </section>
 
-    <section id="services" class="section section--light">
-        <div class="wrap">
-            <h2 class="section-title">Our Services</h2>
-            <p class="lede">Comprehensive logistics services tailored to your business.</p>
-
-            <div class="grid services-grid">
-                <article class="service-card">
-                    <img src="https://via.placeholder.com/600x360.png?text=Ocean+Freight" alt="Ocean freight" />
-                    <h3>Ocean Freight</h3>
-                    <p>Full-container and less-than-container shipments with global carrier partnerships.</p>
-                </article>
-
-                <article class="service-card">
-                    <img src="https://via.placeholder.com/600x360.png?text=Air+Freight" alt="Air freight" />
-                    <h3>Air Freight</h3>
-                    <p>Time-critical shipments with flexible routing and customs support.</p>
-                </article>
-
-                <article class="service-card">
-                    <img src="https://via.placeholder.com/600x360.png?text=Warehousing" alt="Warehousing" />
-                    <h3>Warehousing & Distribution</h3>
-                    <p>Secure storage, inventory management and last-mile distribution capabilities.</p>
-                </article>
-
-                <article class="service-card">
-                    <img src="https://via.placeholder.com/600x360.png?text=Customs+Brokerage" alt="Customs brokerage" />
-                    <h3>Customs Brokerage</h3>
-                    <p>Regulatory clearance and compliance to keep cargo moving smoothly.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section section--dark">
-        <div class="wrap about-grid">
-            <div class="about-media">
-                <img src="https://via.placeholder.com/1000x600.png?text=About+AVN" alt="About AVN" />
-            </div>
-            <div class="about-content">
-                <h2>About AVN Shipping</h2>
-                <p>AVN Shipping provides tailored logistics solutions built on industry experience, technology and a customer-first approach. We combine global partner networks with local expertise to deliver value for our clients.</p>
-                <ul class="about-list">
-                    <li><strong>Experience:</strong> 20+ years in freight & logistics</li>
-                    <li><strong>Network:</strong> International coverage with local offices</li>
-                    <li><strong>Quality:</strong> Committed to compliance and continuous improvement</li>
-                </ul>
-                <a class="btn primary" href="#contact">Contact Sales</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="section section--light">
-        <div class="wrap">
-            <h2 class="section-title">Certifications & Awards</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <img src="https://via.placeholder.com/240x160.png?text=ISO+9001" alt="ISO 9001" />
-                    <div>ISO 9001</div>
+        <section id="contact" class="section section--contact">
+            <div class="wrap contact-grid">
+                <div class="contact-card">
+                    <h3>Get in touch</h3>
+                    <p>Email: <a href="mailto:info@avnshipping.com">info@avnshipping.com</a></p>
+                    <p>Phone: <a href="tel:+971501234567">+971 50 123 4567</a></p>
+                    <p>Address: Dubai, UAE</p>
+                    <a class="btn ghost" href="mailto:info@avnshipping.com">Email Us</a>
                 </div>
-                <div class="cert-card">
-                    <img src="https://via.placeholder.com/240x160.png?text=Great+Place+To+Work" alt="Great Place to Work" />
-                    <div>Great Place to Work</div>
-                </div>
-                <div class="cert-card">
-                    <img src="https://via.placeholder.com/240x160.png?text=Safety+Cert" alt="Safety" />
-                    <div>Safety & Compliance</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="contact" class="section section--contact">
-        <div class="wrap contact-grid">
-            <div class="contact-card">
-                <h3>Get in touch</h3>
-                <p>Email: <a href="mailto:info@avnshipping.com">info@avnshipping.com</a></p>
-                <p>Phone: <a href="tel:+971501234567">+971 50 123 4567</a></p>
-                <p>Address: Dubai, UAE</p>
-                <a class="btn ghost" href="mailto:info@avnshipping.com">Email Us</a>
+                <form class="contact-form" action="#" onsubmit="console.log('Static demo: form submission intercepted'); return false;" aria-label="Contact form">
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="name" required />
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email" required />
+                    </label>
+                    <label>
+                        <span>Message</span>
+                        <textarea name="message" rows="5" required></textarea>
+                    </label>
+                    <button class="btn primary" type="submit">Send Message</button>
+                </form>
             </div>
-            <form class="contact-form" action="#" onsubmit="alert('This is a static demo — replace with your form endpoint.'); return false;">
-                <label>
-                    <span>Name</span>
-                    <input type="text" name="name" required />
-                </label>
-                <label>
-                    <span>Email</span>
-                    <input type="email" name="email" required />
-                </label>
-                <label>
-                    <span>Message</span>
-                    <textarea name="message" rows="5" required></textarea>
-                </label>
-                <button class="btn primary" type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <div class="wrap footer-inner">
             <div class="foot-left">
-                <img src="https://via.placeholder.com/140x44.png?text=AVN+Logo" alt="AVN Logo" />
+                <img src="https://via.placeholder.com/140x44.png?text=AVN+Logo" alt="AVN logo" />
                 <p class="muted">© <span id="year">2025</span> AVN Shipping. All rights reserved.</p>
             </div>
             <div class="foot-right">
-                <nav class="foot-nav">
+                <nav class="foot-nav" aria-label="Footer navigation">
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
                     <a href="#contact">Contact</a>
@@ -691,59 +714,114 @@
     </footer>
 
     <script>
-        // Set current year in the footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Set current year in the footer (safe check)
+        (function() {
+            var yearEl = document.getElementById('year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+        })();
 
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                mainNav.classList.toggle('is-open');
-                this.setAttribute('aria-expanded', mainNav.classList.contains('is-open'));
+        // Mobile menu toggle - robust checks
+        (function() {
+            var menuToggle = document.getElementById('menuToggle');
+            var mainNav = document.getElementById('mainNav');
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    var isOpen = mainNav.classList.toggle('is-open');
+                    this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+            }
+        })();
+
+        // Hero slider functionality - safer initialization and autoplay handling
+        (function() {
+            var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+            var prevBtn = document.querySelector('.slider-controls .prev');
+            var nextBtn = document.querySelector('.slider-controls .next');
+            var heroSlider = document.querySelector('.hero-slider');
+            var autoplayIntervalId = null;
+            var currentSlide = 0;
+            var autoplayEnabled = false;
+
+            if (!slides.length) return;
+
+            // Helper: update slide classes
+            function showSlide(n) {
+                // normalize
+                currentSlide = ((n % slides.length) + slides.length) % slides.length;
+                slides.forEach(function(slide, idx) {
+                    if (idx === currentSlide) {
+                        slide.classList.add('is-active');
+                        slide.setAttribute('aria-hidden', 'false');
+                    } else {
+                        slide.classList.remove('is-active');
+                        slide.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+
+            // Hook up controls if present
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    prevSlide();
+                    restartAutoplay();
+                });
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    nextSlide();
+                    restartAutoplay();
+                });
+            }
+
+            // Autoplay logic (reads data-autoplay safely)
+            if (heroSlider) {
+                try {
+                    autoplayEnabled = String(heroSlider.dataset.autoplay || 'false').toLowerCase() === 'true';
+                } catch (e) {
+                    autoplayEnabled = false;
+                }
+            }
+
+            function startAutoplay() {
+                if (!autoplayEnabled) return;
+                stopAutoplay();
+                autoplayIntervalId = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoplay() {
+                if (autoplayIntervalId !== null) {
+                    clearInterval(autoplayIntervalId);
+                    autoplayIntervalId = null;
+                }
+            }
+
+            function restartAutoplay() {
+                stopAutoplay();
+                startAutoplay();
+            }
+
+            // Pause autoplay on focus/hover for accessibility
+            slides.forEach(function(slide) {
+                slide.addEventListener('mouseenter', stopAutoplay);
+                slide.addEventListener('mouseleave', startAutoplay);
+                slide.addEventListener('focusin', stopAutoplay);
+                slide.addEventListener('focusout', startAutoplay);
             });
-        }
 
-        // Hero slider functionality
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.querySelector('.slider-controls .prev');
-        const nextBtn = document.querySelector('.slider-controls .next');
-        let currentSlide = 0;
-
-        function showSlide(n) {
-            slides.forEach(slide => {
-                slide.style.display = 'none';
-                slide.style.opacity = '0';
-            });
-            
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].style.display = 'block';
-            setTimeout(() => {
-                slides[currentSlide].style.opacity = '1';
-            }, 10);
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-        }
-
-        // Auto-play slider every 5 seconds
-        const autoplay = document.querySelector('.hero-slider').dataset.autoplay === 'true';
-        if (autoplay) {
-            setInterval(nextSlide, 5000);
-        }
-
-        // Initialize first slide
-        showSlide(0);
+            // Initialize
+            showSlide(0);
+            startAutoplay();
+        })();
     </script>
 </body>
 </html>
